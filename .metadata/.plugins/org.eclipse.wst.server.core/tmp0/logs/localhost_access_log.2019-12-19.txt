@@ -1,0 +1,4 @@
+127.0.0.1 - - [19/Dec/2019:00:07:01 +0100] "GET / HTTP/1.1" 404 996
+0:0:0:0:0:0:0:1 - - [19/Dec/2019:00:07:08 +0100] "GET /AuthentificationAvecBD/Test.jsp HTTP/1.1" 200 147
+127.0.0.1 - - [19/Dec/2019:00:55:40 +0100] "GET / HTTP/1.1" 404 996
+0:0:0:0:0:0:0:1 - - [19/Dec/2019:00:55:45 +0100] "GET /AuthentificationAvecBD/login.jsp HTTP/1.1" 200 737

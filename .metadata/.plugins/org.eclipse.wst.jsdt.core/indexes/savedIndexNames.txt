@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+C:\Users\Ali\Documents\tp git\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+272169082.index
+1246895604.index
+4247594950.index
+702620575.index
+432226373.index
+343521886.index
+1702264635.index
