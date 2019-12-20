@@ -2,6 +2,8 @@ package dao;
 import java.sql.*;
 import metier.entities.Utilisateur;
 
+
+
 public class UtilisateurDao {
 	
 	
@@ -11,10 +13,10 @@ public class UtilisateurDao {
 		
 				Utilisateur Util=null;
 			
-			
-			 	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			 	Connection connection=DriverManager.getConnection("");
 				
+			 	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+			 	Connection connection=DriverManager.getConnection("jdbc:sqlserver://localhost;database=tpDevOPs;integratedSecurity=true;");
+
 			 
 			 PreparedStatement ps =connection.prepareStatement("select * from Utilisateurs where [login] like ? and [password] like ?");
 				ps.setString(1, login);
@@ -46,7 +48,7 @@ public class UtilisateurDao {
 		int nbupdt=0;
 		
 		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-	 	Connection connection=DriverManager.getConnection("");
+	 	Connection connection=DriverManager.getConnection("jdbc:sqlserver://localhost;database=tpDevOPs;integratedSecurity=true;");
 		
 		
 		
@@ -60,9 +62,9 @@ public class UtilisateurDao {
 			nbupdt=ps.executeUpdate();
 			
 			if (nbupdt!=0) {
-				updt=true;
+				return true;
 			}
-			
+			connection.close();
 			return updt;
 			
 	}	

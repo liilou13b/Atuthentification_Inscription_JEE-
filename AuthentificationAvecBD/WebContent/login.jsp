@@ -12,8 +12,8 @@
 		<form action="login" method="post">
 			<table style="background-color: skyblue;margin-left: 20px;margin-top: 20px;">
 				<tr><td> <h3 style="color: red;">La page de Connexion</h3> </td>  </tr>
-				<tr> <td><label for="login">login</label></td>  <td> <input type="text" name="login" id ="login"> </td></tr>
-				<tr> <td><label for="password">Password</label> </td>  <td> <input type="password" name="password" id="password"> </td> </tr>
+				<tr> <td><label for="login">login</label></td>  <td> <input type="text" name="login" id ="login" required> </td></tr>
+				<tr> <td><label for="password">Password</label> </td>  <td> <input type="password" name="password" id="password" required> </td> </tr>
 				<tr> <td><input type="submit" value="Connexion"> </td> <td> <a href="register.jsp">Inscription</a> </td> </tr>
 			
 			</table>
