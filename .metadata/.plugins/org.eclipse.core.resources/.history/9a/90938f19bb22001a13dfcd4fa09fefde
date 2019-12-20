@@ -1,0 +1,65 @@
+package web.servlet;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import metier.entities.Utilisateur;
+import dao.UtilisateurDao;
+
+
+@WebServlet(
+        name = "login",
+        description = "Controleur Login",
+        urlPatterns = "/UserLogin"
+)
+public class UserLogin extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+
+    public UserLogin() {
+        super();
+       
+    }
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String login=request.getParameter("login");
+		String password=request.getParameter("password");
+		
+		UtilisateurDao utilDao= new UtilisateurDao();
+		
+		try {
+				Utilisateur util =utilDao.connexion(login, password);
+				String destPage="login.jsp;";
+				
+				if (util !=null) {
+					destPage="login.jsp;";
+					
+					HttpSession session =request.getSession();
+					session.setAttribute("util", util);
+					destPage ="home.jsp";
+				}else {
+					 String message = "Invalid email/password";
+					 request.setAttribute("message", message);
+				}
+				
+				RequestDispatcher requestDispatcher = request.getRequestDispatcher(destPage);
+				requestDispatcher.forward(request, response);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+}
